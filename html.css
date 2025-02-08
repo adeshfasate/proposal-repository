@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Madhura ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            text-align: center;
+            transition: background 1s;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff1493;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff69b4;
+        }
+        .hidden {
+            display: none;
+        }
+        .love-visual {
+            font-size: 30px;
+            color: red;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="question">Hi Madhura ❤️</p>
+        <button id="nextBtn">OK</button>
+    </div>
+
+    <script>
+        const questions = [
+            "Hi Madhura ❤️",
+            "What are you doing?",
+            "Don't take much stress about college & tuition.",
+            "Do you love me? 🥺"
+        ];
+        let index = 0;
+
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            index++;
+            if (index < questions.length) {
+                document.getElementById("question").innerText = questions[index];
+            } else {
+                showLoveVisuals();
+            }
+        });
+
+        function showLoveVisuals() {
+            document.body.innerHTML = `
+                <div class="love-visual">🌸💖🌼 Love You Madhura! 🌸💖🌼</div>
+            `;
+            document.body.style.background = "pink";
+        }
+    </script>
+</body>
+</html>
