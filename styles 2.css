@@ -1,0 +1,44 @@
+const questions = [
+    { text: "How are you?", options: ["Mast 😍", "Thik thak 🙂"] },
+    { text: "Don’t take much stress about college tuition, my love! 💖", options: ["Ok ❤️"] },
+    { text: "Then do you love me, my Baayko? 🥰", options: ["Yeess ❤️", "Ho 😘"] },
+];
+
+let currentQuestion = -1; // Start before the first question
+const questionText = document.getElementById("question-text");
+const buttonsDiv = document.getElementById("buttons");
+
+function startGame() {
+    document.getElementById("start-btn").style.display = "none"; // Hide start button
+    nextQuestion(); // Start asking questions
+}
+
+function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        questionText.innerText = questions[currentQuestion].text;
+        buttonsDiv.innerHTML = "";
+
+        questions[currentQuestion].options.forEach((optionText) => {
+            const button = document.createElement("button");
+            button.innerText = optionText;
+            button.classList.add("option1");
+            button.onclick = nextQuestion;
+            buttonsDiv.appendChild(button);
+        });
+    } else {
+        showCelebration();
+    }
+}
+
+function showCelebration() {
+    document.body.innerHTML = `
+        <div id="celebration">
+            <p>Congratulations My Baayko ❤️🌸</p>
+            <p id="heart">💖💖💖</p>
+            <audio autoplay loop>
+                <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+            </audio>
+        </div>
+    `;
+}
